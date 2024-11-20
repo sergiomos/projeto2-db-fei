@@ -68,7 +68,6 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 
 ```mermaid
 erDiagram
-   erDiagram
     Usuario ||--o{ Anotacao : "cria"
     Livro ||--o{ Autor_Conteudo : "tem"
     Artigo ||--o{ Autor_Conteudo : "tem"
