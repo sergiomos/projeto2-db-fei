@@ -69,7 +69,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `Usuario`
 | Coluna          | Tipo         | Restrição              |
 |------------------|--------------|------------------------|
-| `id`            | SERIAL       | PRIMARY KEY           |
+| `id`            | INT       | PRIMARY KEY           |
 | `nome`          | VARCHAR(100) | NOT NULL              |
 | `email`         | VARCHAR(100) | UNIQUE, NOT NULL      |
 | `data_registro` | DATE         | NOT NULL              |
@@ -79,7 +79,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `Livro`
 | Coluna            | Tipo         | Restrição              |
 |--------------------|--------------|------------------------|
-| `id`              | SERIAL       | PRIMARY KEY           |
+| `id`              | INT       | PRIMARY KEY           |
 | `titulo`          | VARCHAR(200) | NOT NULL              |
 | `isbn`            | VARCHAR(13)  | UNIQUE, NOT NULL      |
 | `data_publicacao` | DATE         | NOT NULL              |
@@ -89,7 +89,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `Artigo`
 | Coluna            | Tipo         | Restrição              |
 |--------------------|--------------|------------------------|
-| `id`              | SERIAL       | PRIMARY KEY           |
+| `id`              | INT       | PRIMARY KEY           |
 | `titulo`          | VARCHAR(200) | NOT NULL              |
 | `doi`             | VARCHAR(50)  | UNIQUE, NOT NULL      |
 | `ano_publicacao`  | INT          | NOT NULL              |
@@ -99,7 +99,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `Autor`
 | Coluna            | Tipo         | Restrição              |
 |--------------------|--------------|------------------------|
-| `id`              | SERIAL       | PRIMARY KEY           |
+| `id`              | INT       | PRIMARY KEY           |
 | `nome`            | VARCHAR(100) | NOT NULL              |
 | `nacionalidade`   | VARCHAR(50)  | NOT NULL              |
 | `data_nascimento` | DATE         | NOT NULL              |
@@ -109,7 +109,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `Categoria`
 | Coluna    | Tipo         | Restrição              |
 |-----------|--------------|------------------------|
-| `id`      | SERIAL       | PRIMARY KEY           |
+| `id`      | INT       | PRIMARY KEY           |
 | `nome`    | VARCHAR(100) | NOT NULL              |
 | `descricao`| TEXT        | NOT NULL              |
 
@@ -118,7 +118,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `LivroAutor` (Relacionamento `n:m` com atributos)
 | Coluna      | Tipo         | Restrição              |
 |-------------|--------------|------------------------|
-| `id`        | SERIAL       | PRIMARY KEY           |
+| `id`        | INT       | PRIMARY KEY           |
 | `livro_id`  | INT          | FOREIGN KEY (`Livro.id`) |
 | `autor_id`  | INT          | FOREIGN KEY (`Autor.id`) |
 | `papel`     | VARCHAR(50)  | NOT NULL              |
@@ -128,7 +128,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `ArtigoCategoria` (Relacionamento `n:m`)
 | Coluna          | Tipo         | Restrição              |
 |------------------|--------------|------------------------|
-| `id`            | SERIAL       | PRIMARY KEY           |
+| `id`            | INT       | PRIMARY KEY           |
 | `artigo_id`     | INT          | FOREIGN KEY (`Artigo.id`) |
 | `categoria_id`  | INT          | FOREIGN KEY (`Categoria.id`) |
 
@@ -137,7 +137,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `UsuarioLivro` (Relacionamento entre `Usuario` e `Livro`)
 | Coluna        | Tipo         | Restrição              |
 |---------------|--------------|------------------------|
-| `id`          | SERIAL       | PRIMARY KEY           |
+| `id`          | INT       | PRIMARY KEY           |
 | `usuario_id`  | INT          | FOREIGN KEY (`Usuario.id`) |
 | `livro_id`    | INT          | FOREIGN KEY (`Livro.id`) |
 | `data_leitura`| DATE         | NOT NULL              |
@@ -147,7 +147,7 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 ### Tabela: `UsuarioArtigo` (Relacionamento entre `Usuario` e `Artigo`)
 | Coluna        | Tipo         | Restrição              |
 |---------------|--------------|------------------------|
-| `id`          | SERIAL       | PRIMARY KEY           |
+| `id`          | INT       | PRIMARY KEY           |
 | `usuario_id`  | INT          | FOREIGN KEY (`Usuario.id`) |
 | `artigo_id`   | INT          | FOREIGN KEY (`Artigo.id`) |
 | `data_visualizacao` | DATE   | NOT NULL              |
