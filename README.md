@@ -68,74 +68,14 @@ Execute o script SQL create_tables.sql no seu banco de dados para criar as tabel
 
 ```mermaid
 erDiagram
-    USUARIO {
-        int id
-        string nome
-        string email
-        date data_registro
-    }
-    LIVRO {
-        int id
-        string titulo
-        string isbn
-        date data_publicacao
-    }
-    AUTOR {
-        int id
-        string nome
-        string nacionalidade
-        date data_nascimento
-    }
-    CATEGORIA {
-        int id
-        string nome
-        string descricao
-    }
-    EMPRESTIMO {
-        int id
-        date data_empréstimo
-        date data_devolucao
-    }
-
-    LIVRO_AUTOR {
-        int livro_id
-        int autor_id
-        string papel
-    }
-    
-    ARTIGO {
-        int id
-        string titulo
-        string doi
-        int ano_publicacao
-    }
-
-    ARTIGO_CATEGORIA {
-        int artigo_id
-        int categoria_id
-    }
-
-    USUARIO_LIVRO {
-        int usuario_id
-        int livro_id
-        date data_leitura
-    }
-
-    USUARIO_ARTIGO {
-        int usuario_id
-        int artigo_id
-        date data_visualizacao
-    }
-
-    USUARIO ||--o{ USUARIO_LIVRO : ""
-    USUARIO ||--o{ USUARIO_ARTIGO : ""
-    LIVRO ||--o{ USUARIO_LIVRO : ""
-    ARTIGO ||--o{ USUARIO_ARTIGO : ""
-
-    LIVRO ||--o{ LIVRO_AUTOR : ""
-    AUTOR ||--o{ LIVRO_AUTOR : ""
-    ARTIGO ||--o{ ARTIGO_CATEGORIA : ""
-    CATEGORIA ||--o{ ARTIGO_CATEGORIA : ""
+   erDiagram
+    Usuario ||--o{ Anotacao : "cria"
+    Livro ||--o{ Autor_Conteudo : "tem"
+    Artigo ||--o{ Autor_Conteudo : "tem"
+    Autor ||--o{ Autor_Conteudo : "escreve"
+    Livro ||--o{ Conteudo_Categoria : "classificado"
+    Artigo ||--o{ Conteudo_Categoria : "classificado"
+    Categoria ||--o{ Conteudo_Categoria : "inclui"
 
 ```
 
