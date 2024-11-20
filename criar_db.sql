@@ -1,33 +1,37 @@
+
+DROP DATABASE IF EXISTS biblioteca;
+CREATE DATABASE biblioteca;
+
 CREATE TABLE Usuario (
-    usuario_id SERIAL PRIMARY KEY,
+    usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     data_registro DATE NOT NULL
 );
 
 CREATE TABLE Livro (
-    livro_id SERIAL PRIMARY KEY,
+    livro_id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(200) NOT NULL,
     isbn VARCHAR(20) UNIQUE NOT NULL,
     data_publicacao DATE NOT NULL
 );
 
 CREATE TABLE Artigo (
-    artigo_id SERIAL PRIMARY KEY,
+    artigo_id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(200) NOT NULL,
     doi VARCHAR(50) UNIQUE NOT NULL,
     ano_publicacao INT NOT NULL
 );
 
 CREATE TABLE Autor (
-    autor_id SERIAL PRIMARY KEY,
+    autor_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     nacionalidade VARCHAR(50),
     data_nascimento DATE
 );
 
 CREATE TABLE Anotacao (
-    anotacao_id SERIAL PRIMARY KEY,
+    anotacao_id INT PRIMARY KEY AUTO_INCREMENT,
     conteudo TEXT NOT NULL,
     data_criacao DATE NOT NULL,
     usuario_id INT NOT NULL,
@@ -35,7 +39,7 @@ CREATE TABLE Anotacao (
 );
 
 CREATE TABLE Categoria (
-    categoria_id SERIAL PRIMARY KEY,
+    categoria_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
     descricao TEXT
 );
